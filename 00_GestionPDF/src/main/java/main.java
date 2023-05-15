@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.itextpdf.text.DocumentException;
 
@@ -37,6 +38,11 @@ public class main {
 			miArrayList.add("02;Manuel;Gutierrez;Sevilla");
 			
 			//gestionPDF.crearPDF("miArrayList.pdf", miArrayList);
+			
+			
+			//CREA UN PDF DESDE UN HASHMAP 
+			HashMap<Integer, String> miHashMap = new HashMap<Integer, String>();
+			miHashMap.put(1, "id;nombre;curso");
 			
 			
 			//CREA UN PDF DESDE UN ARCHIVO
