@@ -1,0 +1,8 @@
+S24_2011;18th century schooner;Ships;122.8900;82.34
+S700_1138;The Schooner Bluenose;Ships;66.6700;34.00
+S700_1938;The Mayflower;Ships;86.6100;43.30
+S700_2047;HMS Bounty;Ships;90.5200;39.83
+S700_2610;The USS Constitution Ship;Ships;72.2800;33.97
+S700_3505;The Titanic;Ships;100.1700;51.09
+S700_3962;The Queen Mary;Ships;99.3100;53.63
+S72_3212;Pont Yacht;Ships;54.6000;33.30
