@@ -28,7 +28,7 @@ public class GestionUsuarios {
             System.out.println("Usuario no encontrado");
             
         }else {
-        	if (rs.getString("tipoUsuario").equals("admin")) {
+        	if (tipoUsuario(user, pass).equals("admin")) {
     			System.out.println("Eres Admin");
     			mostrarMenu(true);
     		} else {
@@ -36,6 +36,24 @@ public class GestionUsuarios {
     		}
 		}   
 	}
+	
+	public String tipoUsuario(String user, String pass) throws SQLException {
+		//Creamos objetos para hacer la consulta a la BD
+        Connection conex = ConectarBd.getConnection();
+        String sql = "SELECT * FROM `usuarios` WHERE email=? AND clave=?";
+        PreparedStatement ps = conex.prepareStatement(sql, 
+        		ResultSet.TYPE_SCROLL_SENSITIVE, 
+                ResultSet.CONCUR_UPDATABLE);
+        
+        ps.setString(1, user);
+        ps.setString(1, pass);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        String tipoUsuario = rs.getString(4);
+        return tipoUsuario;
+	}
+	
 	
 	public void mostrarMenu(boolean esAdmin) throws SQLException {
 		if (esAdmin) {

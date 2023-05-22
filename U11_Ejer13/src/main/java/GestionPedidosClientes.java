@@ -48,11 +48,11 @@ public class GestionPedidosClientes {
 	        	//System.out.println("Tiene Pedidos");
 					//System.out.println(rs.getString("numeroPedido"));
 					String Consultasql = "SELECT P.NumeroPedido, P.FechaPedido, P.Estado, SUM(D.CantidadPedida * D.PrecioUnidad) AS ImporteTotal " +
-					"FROM Clientes C "+
-					"JOIN Pedidos P ON C.numeroCliente = P.numeroCliente "+
-					"JOIN DetallesPedidos D ON P.NumeroPedido = D.NumeroPedido "+
+					"FROM clientes C "+
+					"JOIN pedidos P ON C.numeroCliente = P.numeroCliente "+
+					"JOIN detallespedidos D ON P.numeroPedido = D.numeroPedido "+
 					"WHERE C.numeroCliente = "+numeroCliente.toString()+
-					" GROUP BY P.NumeroPedido, P.FechaPedido, P.Estado;";
+					" GROUP BY P.numeroPedido, P.fechaPedido, P.estado;";
 					
 					crearPDF(numeroCliente.toString()+".pdf",Consultasql);
 			} else {
@@ -72,7 +72,7 @@ public class GestionPedidosClientes {
 	
 	
 	// CREAR PDF
-	public static void crearPDF(String archivo, String sql) throws SQLException, IOException, DocumentException {
+	private static void crearPDF(String archivo, String sql) throws SQLException, IOException, DocumentException {
 		
 		//Creamos objetos para hacer la consulta a la BD
         Connection conex = ConectarBd.getConnection();
@@ -93,6 +93,7 @@ public class GestionPedidosClientes {
 		// Numero de columnas de la consulta
 		int numeroColumnas = rs.getMetaData().getColumnCount();
         
+		
         
         if (numeroFilas>0) {
 			
